@@ -79,8 +79,11 @@ public class GridController : MonoBehaviour {
 
     void ReadLayoutsFromFile()
     {
-        StreamReader reader = new StreamReader(gameLayoutFilePath);
-        string result = reader.ReadToEnd();
+        TextAsset targetFile = Resources.Load<TextAsset>(gameLayoutFilePath);
+        string result = targetFile.text;
+
+        // StreamReader reader = new StreamReader(gameLayoutFilePath);
+        // string result = reader.ReadToEnd();
 
         char[] separator = { '[', ']' };
         string[] split = result.Split(separator);
